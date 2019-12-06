@@ -15,11 +15,13 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from blog.views import add_data, article, detail
+from blog.views import add_data, article, detail, edit_post, update_post
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^add_data/', add_data),
     url(r'^articles/', article),
     url(r'^post/(\d+)/', detail),
+    url(r'^edit_post/', edit_post),
+    url(r'^update_post/', update_post),
 ]

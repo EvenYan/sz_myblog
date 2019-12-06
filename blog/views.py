@@ -25,3 +25,19 @@ def article(request):
 def detail(request, id):
     post = Post.objects.get(id=id)
     return render(request, 'blog/detail.html', context={"post": post})
+
+
+def edit_post(request):
+    return render(request, 'blog/edit_post.html')
+
+
+def update_post(request):
+    post_id = request.POST.get("post_id")
+    new_title = request.POST.get("title")
+    new_body = request.POST.get("body")
+    print(post_id, new_title, new_body)
+    post = Post.objects.get(id=post_id)
+    post.title = new_title
+    post.body = new_body
+    post.save()
+    return HttpResponse("Yes")

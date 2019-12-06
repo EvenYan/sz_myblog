@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>修改文章内容</title>
+</head>
+<body>
+
+<form action="/update_post/", method="post">
+    {% csrf_token %}
+    文章id为：<input type="text" name="post_id" id=""> <br>
+    标题修改为：<input type="text" name="title" id=""> <br>
+    文章内容修改为： <textarea name="body" id="" cols="30" rows="10"></textarea> <br>
+    <input type="submit" value="提交修改">
+</form>
+
+
+</body>
+</html>
