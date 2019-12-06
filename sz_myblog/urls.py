@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from blog.views import add_data, article, detail, edit_post, update_post
+from blog.views import add_data, article, detail, edit_post, update_post, json_data, new_url
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -24,4 +24,6 @@ urlpatterns = [
     url(r'^post/(\d+)/', detail),
     url(r'^edit_post/', edit_post),
     url(r'^update_post/', update_post),
+    url(r'^json_data/', json_data),
+    url(r'^new_url/', new_url),
 ]

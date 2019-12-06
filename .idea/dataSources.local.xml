@@ -1,26 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="dataSourceStorageLocal">
-    <data-source name="db" uuid="abff8a28-e630-4c01-9dbc-b5200a19e768">
-      <database-info product="SQLite" version="3.25.1" jdbc-version="2.1" driver-name="SQLite JDBC" driver-version="3.25.1" dbms="SQLITE" exact-version="3.25.1">
+    <data-source name="db [4]" uuid="024e3b70-70b4-418c-944b-f1c61737314d">
+      <database-info product="SQLite" version="3.25.1" jdbc-version="2.1" driver-name="SQLite JDBC" driver-version="3.25.1" dbms="SQLITE" exact-version="3.25.1" exact-driver-version="3.25">
         <identifier-quote-string>&quot;</identifier-quote-string>
       </database-info>
       <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed" />
+      <auth-required>false</auth-required>
       <schema-mapping>
         <introspection-scope>
-          <node kind="schema" qname="main" />
+          <node kind="schema" qname="@" />
         </introspection-scope>
       </schema-mapping>
-    </data-source>
-    <data-source name="db [2]" uuid="72564141-5177-4803-a78e-18db21f8a01c">
-      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="SQLITE" exact-version="0" />
-      <auth-required>false</auth-required>
-      <schema-mapping />
-    </data-source>
-    <data-source name="db [3]" uuid="43b4bf30-5e67-431c-a531-f1ad18529769">
-      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="SQLITE" exact-version="0" />
-      <auth-required>false</auth-required>
-      <schema-mapping />
     </data-source>
   </component>
 </project>

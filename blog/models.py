@@ -7,6 +7,16 @@ class Post(models.Model):
     title = models.CharField(max_length=100)
     body = models.TextField(blank=False)
     views = models.PositiveIntegerField(default=100, null=True)
+    created_time = models.DateTimeField(auto_now_add=True, null=True)
 
     def __str__(self):
         return self.title
+
+
+class Grade(models.Model):
+    name = models.CharField(max_length=100)
+    boy_num = models.PositiveIntegerField(default=40)
+    girl_num = models.PositiveIntegerField(default=50)
+
+    def __str__(self):
+        return self.name

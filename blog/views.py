@@ -1,7 +1,7 @@
 import random
 
-from django.http import HttpResponse
-from django.shortcuts import render
+from django.http import HttpResponse, HttpResponseRedirect
+from django.shortcuts import render, redirect
 from blog.models import Post
 
 # Create your views here.
@@ -16,6 +16,7 @@ def add_data(request):
 
 
 def article(request):
+    # a = 5/0
     post_list = Post.objects.all()
     context = {"post_list": post_list}
     print(post_list)
@@ -28,6 +29,18 @@ def detail(request, id):
 
 
 def edit_post(request):
+    print("path:", request.path)
+    print("method:", request.method)
+    print("encoding:", request.encoding)
+    print("COOKIES:", request.COOKIES)
+    print("session:", request.session)
+    print("get_host", request.get_host())
+
+    kw = request.GET.get('wd')
+    user = request.GET.getlist('user')
+    passwd = request.GET.get('passwd')
+    print(kw, user, passwd)
+
     return render(request, 'blog/edit_post.html')
 
 
@@ -41,3 +54,13 @@ def update_post(request):
     post.body = new_body
     post.save()
     return HttpResponse("Yes")
+
+
+def json_data(request):
+    import json
+    data = json.dumps({"user": "even", "passwd": "1234"})
+    return HttpResponse(data, content_type="application/json")
+
+
+def new_url(request):
+    return  redirect("/admin")
