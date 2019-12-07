@@ -7,4 +7,10 @@
 
 {% block main %}
 <p>这是Home页的内容</p>
+
+    <a href="{% url 'blog:page' 1 %}">第一页</a>
+    <p>欢迎你，{{ username }}</p>
+
+    <a href="{% url 'blog:logout' %}"><button>退出登录</button></a>
 {% endblock %}
+

@@ -69,7 +69,7 @@ def new_url(request):
 
 
 def index(request):
-    username = ""
+    username = request.session.get('username')
     post_view = 90
     post_author = "Tom"
     post_body = "Hello, lllllllllllllllllllllll"
@@ -80,3 +80,22 @@ def index(request):
 
 def page(request, num):
     return HttpResponse("这是第%s页" % num)
+
+
+def simple_login(request):
+    if request.method=="POST":
+        username = request.POST.get('username')
+        passwd = request.POST.get('passwd')
+        print(username, passwd)
+        request.session['username'] = username
+        resp = HttpResponse("登录成功")
+        # resp.set_cookie("username", username, max_age=30)
+        return resp
+    return render(request, 'blog/simple_login.html')
+
+
+
+def logout(request):
+    resp = HttpResponse("cookie删除成功")
+    resp.delete_cookie("username")
+    return resp

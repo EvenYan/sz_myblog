@@ -9,7 +9,7 @@
 </head>
 <body>
 
-<form action="/update_post/", method="post">
+<form action="{% url 'blog:updatepost' %}", method="post">
     {% csrf_token %}
     文章id为：<input type="text" name="post_id" id=""> <br>
     标题修改为：<input type="text" name="title" id=""> <br>
