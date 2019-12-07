@@ -1,5 +1,6 @@
 from django.conf.urls import url
-from blog.views import add_data, article, detail, edit_post, update_post, json_data, new_url, index, page, simple_login, logout
+from blog.views import add_data, article, detail, edit_post, update_post, json_data, new_url, index, page, simple_login, logout, login, register
+
 
 urlpatterns = [
     url(r'add_data/', add_data),
@@ -13,4 +14,6 @@ urlpatterns = [
     url(r'page/(\d+)', page, name="page"),
     url(r'simple_login', simple_login, name="simple_login"),
     url(r'logout', logout, name="logout"),
+    url(r'login', login, name="login"),
+    url(r'register', register, name="register"),
 ]

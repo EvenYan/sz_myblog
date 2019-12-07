@@ -4,9 +4,11 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.urls import reverse
 
-from blog.models import Post
+from blog.models import Post, UserInfo
+
 
 # Create your views here.
+from blog.utils import gen_secret
 
 
 def add_data(request):
@@ -96,6 +98,36 @@ def simple_login(request):
 
 
 def logout(request):
-    resp = HttpResponse("cookie删除成功")
-    resp.delete_cookie("username")
+    resp = HttpResponse("会话删除成功")
+    request.session.clear()
     return resp
+
+
+def login(request):
+    if request.method == "POST":
+        username = request.POST.get('username')
+        passwd = request.POST.get('passwd')
+        passwd = gen_secret(passwd)
+        print(username, passwd)
+        user = UserInfo.objects.filter(username=username).filter(passwd=passwd).last()
+        if user:
+            request.session['username'] = username
+            return HttpResponseRedirect(reverse('blog:index'))
+        # request.session['username'] = username
+        resp = HttpResponse("密码或者帐号输入错误， 请重新登录！")
+        # resp.set_cookie("username", username, max_age=30)
+        return resp
+    return render(request, 'index.html')
+
+
+def register(request):
+    username = request.POST.get("username")
+    email = request.POST.get("email")
+    passwd = request.POST.get("passwd")
+    passwd_confirm = request.POST.get("passwd_confirm")
+    print(username, email, passwd, passwd_confirm)
+    if passwd == passwd_confirm:
+        passwd = gen_secret(passwd)
+        UserInfo.objects.create(username=username, email=email, passwd=passwd)
+        return HttpResponseRedirect(reverse("blog:login"))
+    return HttpResponse("两次密码输入不一致，请重新输入！")
