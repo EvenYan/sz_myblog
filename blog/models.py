@@ -23,6 +23,20 @@ class Grade(models.Model):
 
 
 class UserInfo(models.Model):
-    username = models.CharField(max_length=100)
+    username = models.CharField(max_length=100, verbose_name="用户名", db_column="姓名")
     email = models.CharField(max_length=100)
     passwd = models.CharField(max_length=400)
+
+    def __str__(self):
+        return self.username
+
+
+    class Meta:
+        verbose_name = "用户信息表"
+        verbose_name_plural = "用户信息表"
+
+
+class Student(models.Model):
+    name = models.CharField(max_length=100)
+    sex = models.BooleanField(default=True)
+    grade = models.ForeignKey(Grade)

@@ -21,5 +21,11 @@
         </library>
       </libraries>
     </data-source>
+    <data-source source="LOCAL" name="MySQL - sz_myblog@localhost" uuid="409bc911-9417-4393-80c9-ba40c980f29c">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://localhost:3306/sz_myblog</jdbc-url>
+    </data-source>
   </component>
 </project>
