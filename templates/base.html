@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% block title %}
+        <title>{{ 基础模板 }}</title>
+    {% endblock %}
+</head>
+<body>
+{% include 'nav.html' %}
+
+{% block main %}
+    <p>网页的内容！</p>
+{% endblock %}
+
+{% include 'foot.html' %}
+</body>
+</html>

@@ -2,6 +2,8 @@ import random
 
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
+from django.urls import reverse
+
 from blog.models import Post
 
 # Create your views here.
@@ -63,4 +65,18 @@ def json_data(request):
 
 
 def new_url(request):
-    return  redirect("/admin")
+    return  redirect(reverse('page', args=(10, )))
+
+
+def index(request):
+    username = ""
+    post_view = 90
+    post_author = "Tom"
+    post_body = "Hello, lllllllllllllllllllllll"
+    evil_code = "<script>alert('你的电脑中毒了，请下载XXXX')</script>"
+    context = {"num_list": [], "username": username, "post_view": post_view, "post_author": post_author, "post_body": post_body, "evil_code":evil_code}
+    return render(request, 'blog/home.html', context=context)
+
+
+def page(request, num):
+    return HttpResponse("这是第%s页" % num)
