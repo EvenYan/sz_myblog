@@ -16,5 +16,58 @@
         <a href="{% url 'blog:login' %}">登录</a>
     {% endif %}
 
+    <br>
+
+    <p>分页器</p> <br>
+    <ul>
+        {% for post in page_post_list %}
+            {{ post.title }}  <br>
+            <br>
+        {% endfor %}
+
+    </ul>
+
+
+
+    <nav aria-label="Page navigation">
+  <ul class="pagination">
+    <li>
+        {% if page.has_previous %}
+            <a href="{% url 'blog:page' page.previous_page_number %}" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+            </a>
+        {% else %}
+            <a href="#" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+            </a>
+        {% endif %}
+
+    </li>
+      {% for num in page_range %}
+        {% ifequal page.number num  %}
+            <li class="active"><a href="{% url 'blog:page' num %}">{{ num }} </a></li>
+        {% else %}
+            <li><a href="{% url 'blog:page' num %}">{{ num }} </a></li>
+        {% endifequal %}
+        
+
+
+    {% endfor %}
+
+    <li>
+        {% if page.has_next %}
+            <a href="{% url 'blog:page' page.next_page_number %}" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+              </a>
+        {% else %}
+            <a href="#" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+              </a>
+        {% endif %}
+
+    </li>
+  </ul>
+</nav>
+
 {% endblock %}
 

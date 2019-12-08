@@ -10,7 +10,7 @@ urlpatterns = [
     url(r'update_post/', update_post, name="updatepost"),
     url(r'json_data/', json_data),
     url(r'new_url/', new_url),
-    url(r'index2/', index, name="index"),
+    url(r'index/', index, name="index"),
     url(r'page/(\d+)', page, name="page"),
     url(r'simple_login', simple_login, name="simple_login"),
     url(r'logout', logout, name="logout"),

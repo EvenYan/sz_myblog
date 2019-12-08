@@ -1,5 +1,6 @@
 import random
 
+from django.core.paginator import Paginator
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.urls import reverse
@@ -77,11 +78,25 @@ def index(request):
     post_body = "Hello, lllllllllllllllllllllll"
     evil_code = "<script>alert('你的电脑中毒了，请下载XXXX')</script>"
     context = {"num_list": [], "username": username, "post_view": post_view, "post_author": post_author, "post_body": post_body, "evil_code":evil_code}
+
+    # 分页逻辑
+    post_list = Post.my_objects.all()
+    paginator = Paginator(post_list, 3)
+    page_range = paginator.page_range
+    page = paginator.page(1)
+    page_post_list = page.object_list
+    context.update({"page": page, "page_range": page_range, "page_post_list": page_post_list})
     return render(request, 'blog/home.html', context=context)
 
 
 def page(request, num):
-    return HttpResponse("这是第%s页" % num)
+    post_list = Post.my_objects.all()
+    paginator = Paginator(post_list, 3)
+    page_range = paginator.page_range
+    page = paginator.page(num)
+    page_post_list = page.object_list
+    context = {"page": page, "page_range": page_range, "page_post_list": page_post_list}
+    return render(request, 'blog/home.html', context=context)
 
 
 def simple_login(request):
