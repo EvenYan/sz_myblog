@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>验证码</title>
+</head>
+<body>
+验证码
+<form action="{% url 'blog:form' %}" method="post">
+    {% csrf_token %}
+    邮箱：{{ register_form.email }} <br>
+    密码：{{ register_form.password }} <br>
+    验证码：{{ register_form.myfield }} <br>
+
+    <input type="submit" value="登录">
+</form>
+
+</body>
+</html>

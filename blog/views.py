@@ -5,6 +5,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.urls import reverse
 
+from blog.forms import RegisterForm
 from blog.models import Post, UserInfo
 
 
@@ -146,3 +147,15 @@ def register(request):
         UserInfo.objects.create(username=username, email=email, passwd=passwd)
         return HttpResponseRedirect(reverse("blog:login"))
     return HttpResponse("两次密码输入不一致，请重新输入！")
+
+
+def form(request):
+    if request.method == "POST":
+        print(dict(request.POST))
+        register_form = RegisterForm(request.POST)
+        if register_form.is_valid():
+            return HttpResponse("登录成功")
+        return HttpResponse("登录失败，请重新登录！")
+
+    register_form = RegisterForm()
+    return render(request, 'blog/form.html', {"register_form": register_form})

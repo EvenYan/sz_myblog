@@ -20,5 +20,7 @@ from blog.views import add_data, article, detail, edit_post, update_post, json_d
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^blog/', include('blog.urls', namespace="blog")),
+    url(r'^captcha/', include('captcha.urls')),
+
 
 ]
