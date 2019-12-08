@@ -2,12 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="628ef481-9ab0-458c-bd27-2bdfeef89250" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/blog/migrations/0011_auto_20191207_1539.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/migrations/0012_auto_20191207_1547.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/migrations/0013_auto_20191207_1555.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/migrations/0014_auto_20191207_1612.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog/a.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog/middleware.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uwsgi.ini" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sz_myblog/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/sz_myblog/settings.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -109,6 +108,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/blog" />
       <recent name="$PROJECT_DIR$/static/css" />
       <recent name="$PROJECT_DIR$/static" />
     </key>
@@ -165,7 +165,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1575598382694</updated>
-      <workItem from="1575600950936" duration="34731000" />
+      <workItem from="1575600950936" duration="42841000" />
     </task>
     <servers />
   </component>

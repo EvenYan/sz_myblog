@@ -23,9 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '8z^cy6==(8)=pb337&#w$ldtb#d%_+40h-n+=$n)przthj@1n%'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -48,6 +48,9 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'blog.middleware.MyMiddleware1',
+    'blog.middleware.MyMiddleware2',
+    'blog.middleware.BlockIPMiddleware',
 ]
 
 ROOT_URLCONF = 'sz_myblog.urls'
